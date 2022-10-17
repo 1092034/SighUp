@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SighUpModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TableActivitys1092034">
+    <Key>
+      <PropertyRef Name="aNo" />
+    </Key>
+    <Property Name="aNo" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="aName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nature" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="natureNo" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+    <Property Name="time" Type="varchar" MaxLength="9" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TableMembers1092034">
+    <Key>
+      <PropertyRef Name="mId" />
+    </Key>
+    <Property Name="mId" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="mName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="account" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="phone" Type="varchar" MaxLength="10" />
+    <Property Name="aNo" Type="varchar" MaxLength="4" />
+  </EntityType>
+  <Association Name="FK__TableMember__aNo__5BB889C0">
+    <End Role="TableActivitys1092034" Type="Self.TableActivitys1092034" Multiplicity="0..1" />
+    <End Role="TableMembers1092034" Type="Self.TableMembers1092034" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TableActivitys1092034">
+        <PropertyRef Name="aNo" />
+      </Principal>
+      <Dependent Role="TableMembers1092034">
+        <PropertyRef Name="aNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SighUpModelStoreContainer">
+    <EntitySet Name="TableActivitys1092034" EntityType="Self.TableActivitys1092034" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TableMembers1092034" EntityType="Self.TableMembers1092034" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__TableMember__aNo__5BB889C0" Association="Self.FK__TableMember__aNo__5BB889C0">
+      <End Role="TableActivitys1092034" EntitySet="TableActivitys1092034" />
+      <End Role="TableMembers1092034" EntitySet="TableMembers1092034" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

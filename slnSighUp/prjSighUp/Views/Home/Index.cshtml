@@ -1,0 +1,44 @@
+﻿@model IEnumerable<prjSighUp.Models.TableMembers1092034>
+
+@{
+    ViewBag.Title = "報名申請";
+}
+
+<h2>報名申請</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.mId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TableActivitys1092034.aName)
+        </th>
+
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.mId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TableActivitys1092034.aName)
+        </td>
+
+    </tr>
+}
+
+</table>

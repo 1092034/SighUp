@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SighUpModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TableActivitys1092034">
+          <Key>
+            <PropertyRef Name="aNo" />
+          </Key>
+          <Property Name="aNo" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="aName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nature" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="natureNo" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="time" Type="varchar" MaxLength="9" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TableMembers1092034">
+          <Key>
+            <PropertyRef Name="mId" />
+          </Key>
+          <Property Name="mId" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="mName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="account" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="phone" Type="varchar" MaxLength="10" />
+          <Property Name="aNo" Type="varchar" MaxLength="4" />
+        </EntityType>
+        <Association Name="FK__TableMember__aNo__5BB889C0">
+          <End Role="TableActivitys1092034" Type="Self.TableActivitys1092034" Multiplicity="0..1" />
+          <End Role="TableMembers1092034" Type="Self.TableMembers1092034" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableActivitys1092034">
+              <PropertyRef Name="aNo" />
+            </Principal>
+            <Dependent Role="TableMembers1092034">
+              <PropertyRef Name="aNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SighUpModelStoreContainer">
+          <EntitySet Name="TableActivitys1092034" EntityType="Self.TableActivitys1092034" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TableMembers1092034" EntityType="Self.TableMembers1092034" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__TableMember__aNo__5BB889C0" Association="Self.FK__TableMember__aNo__5BB889C0">
+            <End Role="TableActivitys1092034" EntitySet="TableActivitys1092034" />
+            <End Role="TableMembers1092034" EntitySet="TableMembers1092034" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SighUpModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TableActivitys1092034">
+          <Key>
+            <PropertyRef Name="aNo" />
+          </Key>
+          <Property Name="aNo" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="aName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nature" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="natureNo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="time" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TableMembers1092034" Relationship="Self.FK__TableMember__aNo__5BB889C0" FromRole="TableActivitys1092034" ToRole="TableMembers1092034" />
+        </EntityType>
+        <EntityType Name="TableMembers1092034">
+          <Key>
+            <PropertyRef Name="mId" />
+          </Key>
+          <Property Name="mId" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="account" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="aNo" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TableActivitys1092034" Relationship="Self.FK__TableMember__aNo__5BB889C0" FromRole="TableMembers1092034" ToRole="TableActivitys1092034" />
+        </EntityType>
+        <Association Name="FK__TableMember__aNo__5BB889C0">
+          <End Role="TableActivitys1092034" Type="Self.TableActivitys1092034" Multiplicity="0..1" />
+          <End Role="TableMembers1092034" Type="Self.TableMembers1092034" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableActivitys1092034">
+              <PropertyRef Name="aNo" />
+            </Principal>
+            <Dependent Role="TableMembers1092034">
+              <PropertyRef Name="aNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SighUpEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TableActivitys1092034" EntityType="Self.TableActivitys1092034" />
+          <EntitySet Name="TableMembers1092034" EntityType="Self.TableMembers1092034" />
+          <AssociationSet Name="FK__TableMember__aNo__5BB889C0" Association="Self.FK__TableMember__aNo__5BB889C0">
+            <End Role="TableActivitys1092034" EntitySet="TableActivitys1092034" />
+            <End Role="TableMembers1092034" EntitySet="TableMembers1092034" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SighUpModelStoreContainer" CdmEntityContainer="SighUpEntities">
+          <EntitySetMapping Name="TableActivitys1092034">
+            <EntityTypeMapping TypeName="SighUpModel.TableActivitys1092034">
+              <MappingFragment StoreEntitySet="TableActivitys1092034">
+                <ScalarProperty Name="aNo" ColumnName="aNo" />
+                <ScalarProperty Name="aName" ColumnName="aName" />
+                <ScalarProperty Name="nature" ColumnName="nature" />
+                <ScalarProperty Name="natureNo" ColumnName="natureNo" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="time" ColumnName="time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TableMembers1092034">
+            <EntityTypeMapping TypeName="SighUpModel.TableMembers1092034">
+              <MappingFragment StoreEntitySet="TableMembers1092034">
+                <ScalarProperty Name="mId" ColumnName="mId" />
+                <ScalarProperty Name="mName" ColumnName="mName" />
+                <ScalarProperty Name="account" ColumnName="account" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="aNo" ColumnName="aNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

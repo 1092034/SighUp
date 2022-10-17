@@ -1,0 +1,66 @@
+﻿@using PagedList
+@using PagedList.Mvc
+
+@model IPagedList<prjSighUp.Models.TableActivitys1092034>
+
+
+@{
+    ViewBag.Title = "活動細項";
+}
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+<h2>活動細項</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().aName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().nature)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().natureNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().time)
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.aName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nature)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.natureNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.time)
+            </td>
+            <td>
+                @Html.ActionLink("刪除", "Delete", 
+                    new { aNo=item.aNo },
+                    new { onclick="return confirm('確定刪除嗎?');",
+                    @class="btn btn-danger"})
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.PagedListPager(Model, page => Url.Action("List", new { page }))

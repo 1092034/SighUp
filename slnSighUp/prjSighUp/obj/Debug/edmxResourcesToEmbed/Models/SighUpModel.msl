@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SighUpModelStoreContainer" CdmEntityContainer="SighUpEntities">
+    <EntitySetMapping Name="TableActivitys1092034">
+      <EntityTypeMapping TypeName="SighUpModel.TableActivitys1092034">
+        <MappingFragment StoreEntitySet="TableActivitys1092034">
+          <ScalarProperty Name="aNo" ColumnName="aNo" />
+          <ScalarProperty Name="aName" ColumnName="aName" />
+          <ScalarProperty Name="nature" ColumnName="nature" />
+          <ScalarProperty Name="natureNo" ColumnName="natureNo" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="time" ColumnName="time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TableMembers1092034">
+      <EntityTypeMapping TypeName="SighUpModel.TableMembers1092034">
+        <MappingFragment StoreEntitySet="TableMembers1092034">
+          <ScalarProperty Name="mId" ColumnName="mId" />
+          <ScalarProperty Name="mName" ColumnName="mName" />
+          <ScalarProperty Name="account" ColumnName="account" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="aNo" ColumnName="aNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
